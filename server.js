@@ -27,10 +27,33 @@ app.set('views', path.join(__dirname, 'views'))
 app.get('/puki', (req, res) => res.send('Hello Puki!'))
 app.get('/muki', (req, res) => res.redirect('/puki'))
 
+const captchas = [
+    { challenge: 'What is 3 + 6?', ans: 9 },
+    { challenge: 'What is 5 + 7?', ans: 12 },
+    { challenge: 'What is 8 - 4?', ans: 4 },
+    { challenge: 'What is 10 - 2?', ans: 8 },
+    { challenge: 'What is 4 * 3?', ans: 12 },
+    { challenge: 'What is 12 / 4?', ans: 3 },
+    { challenge: 'What is 15 + 5?', ans: 20 },
+    { challenge: 'What is 9 - 3?', ans: 6 },
+    { challenge: 'What is 6 * 2?', ans: 12 },
+    { challenge: 'What is 7 + 8?', ans: 15 },
+    { challenge: 'What is 18 / 2?', ans: 9 },
+    { challenge: 'What is 14 - 7?', ans: 7 },
+    { challenge: 'What is 6 + 2?', ans: 8 },
+    { challenge: 'What is 9 * 2?', ans: 18 },
+    { challenge: 'What is 16 / 4?', ans: 4 }
+]
+
 app.get('/', (req, res) => {
-    const captcha = { challenge: 'What is  3+6?', ans: 9 }
-    req.session.captchaAns = captcha.ans
-    res.render('index', { title: 'Welcome to Todo SSR', challenge: captcha.challenge })
+    const randomIndex = Math.floor(Math.random() * captchas.length)
+    const selectedCaptcha = captchas[randomIndex] //^ random choose
+
+    req.session.captchaAns = selectedCaptcha.ans
+    res.render('index', {
+        title: 'Welcome to Todo SSR',
+        challenge: selectedCaptcha.challenge
+    })
 })
 
 app.get('/todo', async (req, res) => {
