@@ -1,0 +1,38 @@
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: overline;
+}
+button {
+    cursor: pointer;
+}
+
+
+ul.todo-list {
+    list-style: none;
+}
+.todo-list li {
+    padding: .8em .5em;
+    margin: .5em;
+    border-bottom: 1px solid #333;
+    background-color: gainsboro;
+}
+.todo-list li h5 {
+    color: seagreen;
+}
+
+.todo-list li a {
+    padding: 10px;
+    border-right: 1px solid #333;
+}
+.todo-list li form {
+    display: inline-block;
+    padding: 10px;
+}
+.todo-list li.done h5 {
+    text-decoration: line-through;
+}
+.todo-list li.done {
+    filter: blur(1px);
+}

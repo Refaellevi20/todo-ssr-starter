@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todos App - SSR</title>
+</head>
+
+<body>
+    <h1>Todo SSR</h1>
+    <h2>
+        <%=title %>
+    </h2>
+    <img src="img/logo.png" width="200px" />
+
+    <form action="/setUser" method="POST">
+        <label for="nickname">Enter your name:</label>
+        <input type="text" name="nickname" id="nickname" required>
+    
+        <div id="captcha-section" style="display: none">
+            <label for="captcha"><%= challenge %></label>
+            <input type="text" name="captcha" placeholder="Your answer" required>
+        </div>
+    
+        <button type="submit" id="submitBtn">Login</button>
+    </form>
+    <script>
+        const nicknameInput = document.getElementById('nickname')
+        const captchaSection = document.getElementById('captcha-section')
+        const submitBtn = document.getElementById('submitBtn')
+    
+        nicknameInput.addEventListener('input', function() {
+            if (nicknameInput.value.trim() !== '') { // spase
+
+                captchaSection.style.display = 'block'
+                submitBtn.disabled = false
+            } else {
+                captchaSection.style.display = 'none'
+                submitBtn.disabled = true
+            }
+        })
+    </script>
+</body>
+
+</html>

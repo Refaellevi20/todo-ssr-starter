@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Todos SSR</title>
+</head>
+
+<body>
+    <a href="/todo">Back to list</a>
+    <h1>Todo Details - <%= todo.txt %>
+    </h1>
+    <h6>Owner: <%=todo.owner %>
+    </h6>
+    <h3>Done? <%= todo.isDone %>
+            </h2>
+            <h4>Rate: <%= todo.rate %>
+            </h4>
+            <h4>Importance: <%= todo.importance %> (1-3)</h4>
+            <h4>Color:</h4>
+            <div style="width: 100vh; height: 50px; background-color: <%= todo.color %>;"></div>
+            <h4>Category: <%= todo.category %>
+            </h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus facere animi esse dignissimos architecto
+                odit possimus enim repudiandae ratione modi amet aliquid provident exercitationem, voluptatibus,
+                suscipit laboriosam, blanditiis quia commodi.</p>
+</body>
+</html>
